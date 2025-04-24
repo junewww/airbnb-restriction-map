@@ -9,21 +9,7 @@ import folium
 from folium.plugins import HeatMap
 from streamlit_folium import st_folium
 
-@st.cache_data
-def load_data():
-    df = pd.read_csv("heat_data.csv")
-    df = df[['lat', 'long', 'restriction_score', 'neighbourhood_group', 'host_type', 'id']].dropna()
-    df = df[df['restriction_score'] > 0]
-    df['neighbourhood_group'] = df['neighbourhood_group'].astype(str)
-    df['id'] = df['id'].astype(str)
-    return df
-
-df = load_data()
-
-heat_data = df_with_rules[['lat', 'long', 'restriction_score', 'neighbourhood group', 'host_type', 'id']].dropna()
-heat_data = heat_data[heat_data['restriction_score'] > 0]
-heat_data['neighbourhood group'] = heat_data['neighbourhood group'].astype(str)
-heat_data['id'] = heat_data['id'].astype(str)
+heat_data = pd.read_csv("heat_data.csv")
 
 m = folium.Map(location=[40.7128, -74.0060], zoom_start=11, tiles='cartodbpositron')
 
