@@ -8,6 +8,7 @@ import streamlit as st
 import folium
 from folium.plugins import HeatMap
 from streamlit_folium import st_folium
+import pandas as pd
 
 heat_data = pd.read_csv("heat_data.csv")
 
